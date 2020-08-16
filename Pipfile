@@ -4,11 +4,14 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+pytest = "*"
 pylint = "*"
+flake8 = "*"
+autopep8 = "*"
+pep8 = "*"
 
 [packages]
 django = "*"
-all-auth = "*"
 django-allauth = "*"
 
 [requires]
