@@ -68,7 +68,6 @@ body {
     position: fixed;
     background: white;
     z-index: -1;
-
 }
 
 a.category-badge > span.badge:hover {
@@ -76,6 +75,17 @@ a.category-badge > span.badge:hover {
     color: #fff !important;
 }
 
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.btt-link {
+    cursor: pointer;
+}
 /*------------------------------ Media Queries */
 
 @media (min-width: 1200px) {
