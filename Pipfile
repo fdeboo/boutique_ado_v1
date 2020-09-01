@@ -15,6 +15,7 @@ django = "*"
 django-allauth = "*"
 pillow = "*"
 django-crispy-forms = "*"
+stripe = "*"
 
 [requires]
 python_version = "3.7"
