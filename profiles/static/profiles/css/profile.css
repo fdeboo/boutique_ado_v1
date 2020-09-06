@@ -1,0 +1,18 @@
+.profile-form-input .form-control {
+    color: #000;
+}
+
+.profile-form-input::placeholder {
+    color: #aab7c4;
+}
+
+#id_default_county,
+#id_default_county option:not(:first-child) {
+    color:#000;
+}
+
+#id_default_county option:first-child {
+    color:#aab7c4;
+}
+
+
