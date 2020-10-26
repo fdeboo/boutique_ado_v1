@@ -82,7 +82,7 @@ TEMPLATES = [
             # The context processor
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request', # required by django-allauth. Allows allauth and django to access the HTTP request object in our templates. (ie. request.user)
+                'django.template.context_processors.request',  # required by django-allauth. Allows allauth and django to access the HTTP request object in our templates. (ie. request.user)
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
@@ -96,7 +96,7 @@ TEMPLATES = [
     },
 ]
 
-MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage' # not required as already stores messages in the session
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'  # not required as already stores messages in the session
 
 AUTHENTICATION_BACKENDS = (
     # Needed to login by username in Django admin, regardless of `allauth`
@@ -179,7 +179,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
-if 'USE_AWS' in os.environ:
+if 'USE_AS' in os.environ:
     # Cache Control
     AWS_S3_OBJECT_PARAMETERS = {
         'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
@@ -198,11 +198,17 @@ if 'USE_AWS' in os.environ:
     STATICFILES_LOCATION = 'static'
     DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
     MEDIAFILES_LOCATION = 'media'
-    
+
     # Override static and media URLs in production
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
+if 'DEVELOPMENT' in os.environ:
+    STATIC_URL = '/static/'
+    STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Stripe
 FREE_DELIVERY_THRESHOLD = 50
